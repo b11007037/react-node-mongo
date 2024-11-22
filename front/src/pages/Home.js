@@ -6,11 +6,11 @@ const Home = () => {
 
     useEffect(()=>{
         const fetchUsers = async () => {
-            const res = await fetch(`${process.env/REACT_APP_SERVER_URL}/user`);
+            const res = await fetch(`${process.env}/http://localhost:3000/user`);
             const data = await res.json();
             setUsers(data);
         }; //宣告
-        fetchUsers(data); //呼叫
+        fetchUsers(); //呼叫
     },[]);
 
     const handleDelete = async (id) => {};
