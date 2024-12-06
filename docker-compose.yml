@@ -1,4 +1,4 @@
-service:
+services:
   server:
     build:
      context: ./back
@@ -13,7 +13,7 @@ service:
       - DB_USER=$MONGODB_USER
       - DB_PASSWORD=$MONGODB_PASSWORD
       - DB_NAME=$MONGODB_DATABASE
-      - DV_PORT=$MONGODB_DOCKER_PORT
+      - DB_PORT=$MONGODB_DOCKER_PORT
     depends_on:
       - mongodb
 
@@ -31,7 +31,7 @@ service:
   mongodb:
     image: mongo:latest
     container_name: mongodb_server
-    evn_file: ./.evn
+    env_file: ./.env
     environment:
       - MONGODB_INITDB_ROOT_USERNAME=$MONGODB_USER
       - MONGODB_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
